@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
 const Signup = () => {
@@ -11,8 +11,7 @@ const Signup = () => {
     password: "",
   });
   const [error, setError] = useState("");
-  const [msg,setMsg]=useState("")
-
+  const [msg, setMsg] = useState("");
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -21,10 +20,9 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/users";
+      const url = "https://mern-password.onrender.com/api/users";
       const { data: res } = await axios.post(url, data);
-      setMsg(res.message)
-    
+      setMsg(res.message);
     } catch (error) {
       if (
         error.response &&
